@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 
-const Login = () => {
+const Register = () => {
   return (
     <div>
       <Container className="mt-4">
@@ -22,10 +22,18 @@ const Login = () => {
             md={8}
             className="d-flex justify-content-center align-items-center"
           >
-            <Card className="w-100 mt-md-5" style={{ maxWidth: "400px" }}>
-              <Card.Header as="h5">Login</Card.Header>
+            <Card className="w-100" style={{ maxWidth: "400px" }}>
+              <Card.Header as="h5">create an account</Card.Header>
               <Card.Body>
                 <Form>
+                  <Form.Group controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      type="name"
+                      placeholder="Enter name"
+                      required
+                    ></Form.Control>
+                  </Form.Group>
                   <Form.Group controlId="email">
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
@@ -42,20 +50,23 @@ const Login = () => {
                       required
                     ></Form.Control>
                   </Form.Group>
-                  <div className="d-flex justify-content-center align-items-center">
-                    <Button type="submit" variant="primary" className="m-2">
-                      Login
-                    </Button>
-                    <Link to="/home" className="m-2">
-                      <span className="text-danger">Forgot Password</span>
-                    </Link>
-                  </div>
+                  <Form.Group controlId="confirmPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm Password"
+                      required
+                    ></Form.Control>
+                  </Form.Group>
+                  <Button type="submit" variant="primary">
+                    Create an account
+                  </Button>
 
                   <Row className="py-1 text-center">
                     <Col>
-                      Don't have an account yet ?{" "}
-                      <Link to="/signUp">
-                        <span className="text-danger">Create an account</span>
+                      Have an Account ?{" "}
+                      <Link to="/login">
+                        <span className="text-danger">Login</span>
                       </Link>
                     </Col>
                   </Row>
@@ -69,8 +80,8 @@ const Login = () => {
             md={4}
             className="py-3 text-center d-flex justify-content-center align-items-center"
           >
-            <Card className="w-100 mt-md-5" style={{ maxWidth: "300px" }}>
-              <Card.Header as="h5">login with</Card.Header>
+            <Card className="w-100 mt-md-4" style={{ maxWidth: "300px" }}>
+              <Card.Header as="h5">signup with</Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
@@ -105,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

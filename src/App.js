@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Destination from "./components/Destination/Destination";
+import RidingDestination from "./components/RidingDestination/RidingDestination";
 import Blog from "./components/Blog/Blog";
 import Login from "./components/Login/Login";
 import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import NotFound from "./components/NotFound/NotFound";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <Route path="/home">
           <HomePage />
         </Route>
-        <Route path="/destination">
-          <Destination />
+        <Route path="/ridingDestination">
+          <RidingDestination />
         </Route>
         <Route path="/home">
           <HomePage />
@@ -27,6 +28,10 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/signUp">
+          <SignUp />
+        </Route>
+
         <Route exact path="/">
           <HomePage />
         </Route>
