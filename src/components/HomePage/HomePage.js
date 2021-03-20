@@ -25,6 +25,7 @@ const HomePage = () => {
                 md={6}
                 lg={3}
                 className="d-flex justify-content-sm-center align-items-sm-center p-2"
+                key={option.idVehicle}
               >
                 <Link to={`/vehicles/${option.idVehicle}`}>
                   <Card

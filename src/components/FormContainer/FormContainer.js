@@ -1,28 +1,36 @@
-import React from "react";
-import { Button, Card, Container, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card, Form } from "react-bootstrap";
 
-const FormContainer = () => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log("working");
-  };
+const FormContainer = (props) => {
   return (
     <>
       <Card className="w-100" style={{ maxWidth: "400px" }}>
         <Card.Body>
-          <Form onSubmit={handleClick}>
+          <Form onSubmit={props.handleFormContainerSubmit}>
             <Form.Group id="pick-from">
               <Form.Label>Pick From</Form.Label>
-              <Form.Control type="text" placeholder="Where are you?" />
+              <Form.Control
+                type="text"
+                placeholder="Where are you?"
+                value={props.pickFrom}
+                onChange={(e) => props.setPickFrom(e.target.value)}
+                required
+              />
             </Form.Group>
             <Form.Group id="pick-to">
               <Form.Label>Pick To</Form.Label>
-              <Form.Control type="text" placeholder="Destination point?" />
+              <Form.Control
+                type="text"
+                placeholder="Destination point?"
+                value={props.pickTo}
+                onChange={(e) => props.setPickTo(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group id="pick-date">
               <Form.Label>Date</Form.Label>
-              <Form.Control type="date" placeholder="Date" />
+              <Form.Control type="date" placeholder="Date" required />
             </Form.Group>
             <Form.Group id="pick-time">
               <Form.Label>Time</Form.Label>

@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import NotFound from "./components/NotFound/NotFound";
 import SignUp from "./components/SignUp/SignUp";
 import Contact from "./components/Contact/Contact";
+// import { RiderContextProvider } from "./components/RiderContextProvider/RiderContextProvider";
 
 function App() {
   return (
@@ -22,9 +23,6 @@ function App() {
         </Route>
         <Route path="/vehicles/:idVehicle">
           <RidingDestination />
-        </Route>
-        <Route path="/home">
-          <HomePage />
         </Route>
         <Route path="/blog">
           <Blog />

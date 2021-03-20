@@ -3,7 +3,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 
-const RidingInfo = () => {
+const RidingInfo = ({ pickFrom, pickTo }) => {
   return (
     <Card>
       <Card.Body>
@@ -16,7 +16,7 @@ const RidingInfo = () => {
                 paddingLeft: "5px",
               }}
             >
-              Mirpur
+              {pickFrom}
             </span>{" "}
             <FontAwesomeIcon icon={faAngleDoubleRight} size="2x" />{" "}
             <span
@@ -26,7 +26,7 @@ const RidingInfo = () => {
                 paddingLeft: "5px",
               }}
             >
-              Uttara
+              {pickTo}
             </span>
           </Col>
         </Row>
