@@ -1,67 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import FormContainer from "../FormContainer/FormContainer";
+import MapContainer from "../MapContainer/MapContainer";
+import RidingInfo from "../RidingInfo/RidingInfo";
+import RidingOptions from "../RidingOptions/RidingOptions";
+import vehicleInformation from "../../fake data/fakeData.json";
+import { useParams } from "react-router";
 
 const RidingDestination = () => {
+  const someValue = true;
+  const { idVehicle } = useParams();
+  const [vehicles, setVehicles] = useState([]);
+
+  useEffect(() => {
+    const selectedVehicles = vehicleInformation.filter(
+      (vehicle) => vehicle.vehicleId === Number(idVehicle)
+    );
+    setVehicles(selectedVehicles);
+  }, [idVehicle]);
+  console.log(vehicles, idVehicle);
+
   return (
     <div>
+      <h1>{idVehicle}</h1>
+
       <Container>
         <Row>
-          <Col sm={12} md={4}>
-            <Card className="w-100" style={{ maxWidth: "400px" }}>
-              <Card.Body>
-                <Form>
-                  <Form.Group controlId="name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="name"
-                      placeholder="Enter name"
-                      required
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="email">
-                    <Form.Label>Email Address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Enter email"
-                      required
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Enter password"
-                      required
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="confirmPassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Confirm Password"
-                      required
-                    ></Form.Control>
-                  </Form.Group>
-                  <Button type="submit" variant="primary">
-                    Create an account
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
+          <Col sm={12} md={4} id="newForm" className="mt-4">
+            {someValue ? (
+              <FormContainer />
+            ) : (
+              <Card>
+                <Row className="m-1">
+                  <Col>
+                    <RidingInfo />
+                  </Col>
+                </Row>
+                <Card.Body>
+                  <Row className="mt-1">
+                    <Col>
+                      <RidingOptions />
+                    </Col>
+                  </Row>
+                  <Row className="mt-1">
+                    <Col>
+                      <RidingOptions />
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            )}
           </Col>
           <Col
             sm={12}
             md={8}
-            className="d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-center"
+            style={{ maxHeight: "500px", marginTop: "20px" }}
           >
-            <img
-              src="https://cnet2.cbsistatic.com/img/1wA7hlqSUmY0hvKq8gYvEX84v8Q=/2019/08/28/ae269afb-d3ab-4d3b-80e1-d0a89206e3a1/google-maps-2.jpg"
-              width="500"
-              alt=""
-            />
+            <MapContainer />
           </Col>
         </Row>
       </Container>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

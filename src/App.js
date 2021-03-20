@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import NotFound from "./components/NotFound/NotFound";
 import SignUp from "./components/SignUp/SignUp";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -19,11 +20,17 @@ function App() {
         <Route path="/ridingDestination">
           <RidingDestination />
         </Route>
+        <Route path="/vehicles/:idVehicle">
+          <RidingDestination />
+        </Route>
         <Route path="/home">
           <HomePage />
         </Route>
         <Route path="/blog">
           <Blog />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
         <Route path="/login">
           <Login />
@@ -31,7 +38,6 @@ function App() {
         <Route path="/signUp">
           <SignUp />
         </Route>
-
         <Route exact path="/">
           <HomePage />
         </Route>
