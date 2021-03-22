@@ -7,9 +7,16 @@ export const useRiderContext = () => {
 };
 
 export const RiderContextProvider = ({ children }) => {
-  const [vehicles, setVehicles] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState({
+    isSignedIn: false,
+    name: "",
+    password: "",
+    email: "",
+    success: "",
+    error: "",
+  });
 
-  const value = { vehicles, setVehicles };
+  const value = { loggedInUser, setLoggedInUser };
 
   return (
     <RiderContext.Provider value={value}>{children}</RiderContext.Provider>

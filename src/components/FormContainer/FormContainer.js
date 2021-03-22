@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const FormContainer = (props) => {
   return (
@@ -36,9 +37,18 @@ const FormContainer = (props) => {
               <Form.Label>Time</Form.Label>
               <Form.Control type="time" placeholder="Time" />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Search
-            </Button>
+            <div className="d-flex justify-content-center align-items-center">
+              <Button variant="primary" type="submit">
+                {props.vehicles[0]?.name
+                  ? `Search for ${props.vehicles[0].name}`
+                  : "Please select vehicle"}
+              </Button>
+              <Link to="/home">
+                <Button variant="success" type="submit">
+                  change option
+                </Button>
+              </Link>
+            </div>
           </Form>
         </Card.Body>
       </Card>

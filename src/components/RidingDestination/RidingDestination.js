@@ -34,6 +34,7 @@ const RidingDestination = () => {
         <Col sm={12} md={5} className="mt-4">
           {searchRouteParameter ? (
             <FormContainer
+              vehicles={vehicles}
               pickFrom={pickFrom}
               setPickFrom={setPickFrom}
               pickTo={pickTo}
@@ -44,7 +45,11 @@ const RidingDestination = () => {
             <Card>
               <Row className="m-1">
                 <Col>
-                  <RidingInfo pickFrom={pickFrom} pickTo={pickTo} />
+                  <RidingInfo
+                    pickFrom={pickFrom}
+                    pickTo={pickTo}
+                    handleFormContainerSubmit={handleFormContainerSubmit}
+                  />
                 </Col>
               </Row>
               <Card.Body>

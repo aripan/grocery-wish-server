@@ -1,14 +1,14 @@
 import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 
-const RidingInfo = ({ pickFrom, pickTo }) => {
+const RidingInfo = ({ pickFrom, pickTo, handleFormContainerSubmit }) => {
   return (
     <Card>
       <Card.Body>
         <Row>
-          <Col>
+          <Col sm={8}>
             <span
               style={{
                 fontSize: "20px",
@@ -28,6 +28,9 @@ const RidingInfo = ({ pickFrom, pickTo }) => {
             >
               {pickTo}
             </span>
+          </Col>
+          <Col sm={4}>
+            <Button onClick={handleFormContainerSubmit}>Reset</Button>
           </Col>
         </Row>
       </Card.Body>

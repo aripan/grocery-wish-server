@@ -1,8 +1,15 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { SignOut } from "../../FirebaseSetup/firebase";
+import { useRiderContext } from "../RiderContextProvider/RiderContextProvider";
 
 const Header = () => {
+  const { loggedInUser, setLoggedInUser } = useRiderContext();
+
+  const handleLogout = () => {
+    SignOut().then((res) => setLoggedInUser(res));
+  };
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -28,12 +35,20 @@ const Header = () => {
               <LinkContainer to="/login">
                 <Nav.Link>login</Nav.Link>
               </LinkContainer>
-
-              <NavDropdown title="UserName" id="collasible-nav-dropdown">
-                <LinkContainer to="/login">
-                  <NavDropdown.Item>Log Out</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
+              {loggedInUser.isSignedIn ? (
+                <NavDropdown
+                  title={loggedInUser.name}
+                  id="collasible-nav-dropdown"
+                >
+                  <LinkContainer to="/login">
+                    <NavDropdown.Item onClick={handleLogout}>
+                      Log Out
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+              ) : (
+                ""
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
