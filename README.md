@@ -10,7 +10,7 @@ A single page application is built using HTML5, CSS3, Bootstrap(React Bootstrap)
 
 ## Hosted Version
 
-The latest version is deployed and hosted on Firebase. Check it out by clicking on
+The latest version is deployed and hosted on Firebase. Check it out by clicking on https://rider-express-86550.web.app
 
 ## Usage
 
